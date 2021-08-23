@@ -17,6 +17,7 @@ def func_multiplication (number):
 def func_add (number):
     '''
     функция сложения цифр числа
+    
     '''
     if number // 10 == 0:
         return number
