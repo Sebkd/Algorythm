@@ -8,13 +8,12 @@
 
 def possibolity (*args):
     '''
-    Проверка возможности существования треугольника. сумма меньших двух сторон должна быть больше третей стороны
+    Проверка возможности существования треугольника.
+    сумма меньших двух сторон должна быть больше третей стороны
     :param args:
     :return:
     '''
-    print(args)
-    length_a, length_b, length_c = args[0], args[1], args[2]
-    if length_b + length_c < length_a:
+    if args[2] + args[1] < args[0]:
         return True
     return False
 
@@ -24,8 +23,7 @@ def isosceles (*args):
     :param args:
     :return:
     '''
-    length_a, length_b, length_c = args[0], args[1], args[2]
-    if length_a  == length_c or length_a == length_b or length_b == length_c:
+    if args[0]  == args[2] or args[0] == args[1] or args[1] == args[2]:
         return True
     return False
 
@@ -35,9 +33,7 @@ def equilateral (*args):
     :param args:
     :return:
     '''
-    print(type(args[0]))
-    length_a, length_b, length_c = args[0], args[1], args[2]
-    if length_a  == length_c and length_a == length_b:
+    if args[0]  == args[2] and args[0] == args[1]:
         return True
     return False
 
@@ -50,18 +46,15 @@ if __name__ == '__main__':
                 print('Введено не три длины, а меньше')
                 continue
             range_list.sort(reverse = True)
-            if possibolity(range_list):
+            if possibolity(*range_list):
                 print ('Треугольник невозможен')
-                break
-            elif isosceles(range_list):
-                print ('Треугольник равнобедренный')
-                break
-            elif equilateral(range_list):
+            elif equilateral (*range_list):
                 print ('Треугольник равносторонний')
-                break
+            elif isosceles (*range_list):
+                print ('Треугольник равнобедренный')
             else:
                 print ('Треугольник разносторонний')
-                break
+            break
         except TypeError:
             print('Введены не числа или длины меньше 0')
         except ValueError:
