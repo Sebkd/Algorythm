@@ -6,12 +6,14 @@
  является ли он разносторонним, равнобедренным или равносторонним.
 """
 
-def possibolity (length_a, length_b, length_c):
+def possibolity (*args):
     '''
     Проверка возможности существования треугольника. сумма меньших двух сторон должна быть больше третей стороны
     :param args:
     :return:
     '''
+    print(args)
+    length_a, length_b, length_c = args[0], args[1], args[2]
     if length_b + length_c < length_a:
         return True
     return False
