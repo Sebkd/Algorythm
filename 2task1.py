@@ -34,7 +34,7 @@ def func_taskone(operand=0):
             show_me(range_list[0] - range_list[1])
         elif operand == "*":
             show_me(range_list[0] * range_list[1])
-        elif operand == "/" and range_list[1] != 0:
+        elif operand == "/":
             show_me(range_list[0] / range_list[1])
         else:
             raise ValueError
@@ -43,7 +43,7 @@ def func_taskone(operand=0):
             func_taskone (operand)
         else:
             return False
-    except ValueError:
+    except (ValueError, ZeroDivisionError):
         print ('Вы ввели не числа, больше или меньше двух чисел или '
                'или делитель равен 0, попробуйте заново')
         operand = input_operand()
