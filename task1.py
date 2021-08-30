@@ -4,13 +4,21 @@
 Найти сумму и произведение цифр трехзначного числа, которое вводит пользователь.
 """
 
+
 def func_multiplication (number):
+    '''
+    функция умножения цифр числа
+    '''
     if number // 10 == 0:
         return number
     local_number = number % 10
     return local_number * func_multiplication(number // 10)
 
 def func_add (number):
+    '''
+    функция сложения цифр числа
+    
+    '''
     if number // 10 == 0:
         return number
     local_number = number % 10
