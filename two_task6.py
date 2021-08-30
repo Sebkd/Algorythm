@@ -18,18 +18,22 @@ def func_tasksix(number_in, count):
     :param number_in: загаданное число
     :param count: количество попыток
     """
-    print (f'Попытка: {count}')
-    answer = int (input ('Введите число от 0 до 100: '))
-    if count == 10 or answer == number_in:
-        if answer == number_in:
-            print ('Угадали!')
+    try:
+        print (f'Попытка: {count}')
+        answer = int (input ('Введите число от 0 до 100: '))
+        if count == 10 or answer == number_in:
+            if answer == number_in:
+                print ('Угадали!')
+            else:
+                print('Кол-во попыток закончилось')
         else:
-            print('Кол-во попыток закончилось')
-    else:
-        if answer > number_in:
-            print (f'Загаданное число меньше чем {answer}')
-        else:
-            print (f'Загаданное число больше чем {answer}')
+            if answer > number_in:
+                print (f'Загаданное число меньше чем {answer}')
+            else:
+                print (f'Загаданное число больше чем {answer}')
+            func_tasksix (number_in, count + 1)
+    except ValueError:
+        print('Вы ввели не число')
         func_tasksix (number_in, count + 1)
 
 
