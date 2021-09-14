@@ -6,9 +6,10 @@
 Примечание: попробуйте написать несколько реализаций алгоритма и сравнить их
 """
 
+
 def func_erotosfen(number_in):
-    temp_list = [0]*number_in
-    for value in range(number_in):
+    temp_list = [0] * number_in
+    for value in range (number_in):
         temp_list[value] = value
     temp_list[1] = 0
     number_temp = 2
@@ -22,12 +23,20 @@ def func_erotosfen(number_in):
     return_list = []
     for index in temp_list:
         if temp_list[index] != 0:
-            return_list.append(temp_list[index])
+            return_list.append (temp_list[index])
     del temp_list
     return return_list
 
-if __name__ == '__main__':
-    my_number = int(input('Введите натуральное число, '
-                          'до которого необходимо вывести простые числа: '))
-    print(func_erotosfen(my_number))
+def not_func_erotosfen(number_in):
+    temp_list = [0] * number_in
+    for value in range (number_in):
+        temp_list[value] = value
+    temp_list[1] = 0
+    number_temp = 2
+    
 
+
+if __name__ == '__main__':
+    my_number = int (input ('Введите натуральное число, '
+                            'до которого необходимо вывести простые числа: '))
+    print (func_erotosfen (my_number))
