@@ -10,22 +10,9 @@
 """
 
 import math
-from timeit import timeit, default_timer
+from timeit import default_timer
 
 
-def time_it(func):
-    """
-    Обертка для подсчета тайминга
-    :param func: функция
-    :return: обертку и выводит время
-    """
-    def wrapper(numb):
-        start_time = default_timer()
-        func(numb)
-        print(f'Обертка! {default_timer() - start_time}')
-    return wrapper
-
-@time_it
 def func_erotosfen(number_in):
     '''
     Функция использует теорему о распределении простых чисел,
@@ -49,7 +36,6 @@ def func_erotosfen(number_in):
             break
     return list_primes[number_in - 1]
 
-@time_it
 def func_not_erotosfen(number_in):
     """
     Функция поиска i-го простого числа
@@ -73,10 +59,16 @@ def func_not_erotosfen(number_in):
 
 if __name__ == '__main__':
     my_number = int (input ('Введите порядок простого числа: '))
+    start_time = default_timer()
     print (f'Без использования решета Эратосфена: {func_not_erotosfen (my_number)}')
+    wo_eratosfen = default_timer() - start_time
+    start_time = default_timer()
     print (f'C использования решета Эратосфена: {func_erotosfen (my_number)}')
-
-
+    w_eratosfen = default_timer() - start_time
+    print(f'Решение без решета Эратосфена быстрее в {w_eratosfen / wo_eratosfen} раз')
     '''
-
+Введите порядок простого числа: 1000
+Без использования решета Эратосфена: 7919
+C использования решета Эратосфена: 7919
+Решение без решета Эратосфена быстрее в 101.19699101931339 раз
     '''
