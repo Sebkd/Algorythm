@@ -20,7 +20,7 @@ if __name__ == '__main__':
                                                       'avg_profit'])
         book_of_company = {}
         number_of_company = int (input ('Введите количество компаний: '))
-        manual_or_auto = input('Будете вручную вводить? (Y / N) ').isupper()
+        manual_or_auto = input('Будете вручную вводить? (Y / N) ').upper()
         if manual_or_auto == 'Y':
             for number in range (1, number_of_company + 1):
                 NAME = input (str (number) + '-ая компания ')
