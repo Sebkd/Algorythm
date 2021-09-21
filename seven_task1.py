@@ -9,7 +9,7 @@
 """
 
 from random import randint
-from timeit import timeit, default_timer
+from timeit import default_timer
 
 
 def bubble_sort(*args):
@@ -27,6 +27,11 @@ def bubble_sort(*args):
 
 
 def bubble_sort_two(*args):
+    """
+    Пузырьковая сортировка оптимизированная
+    :param args: несортированный массив
+    :return: сортированный массив
+    """
     temp_list = list (args)
     swap_signal = True
     total = 0
