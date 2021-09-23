@@ -39,33 +39,33 @@ def func_code(line):
     head = []
     for char, freq in Counter (line).items ():
         head.append ((freq, len (head), Leaflet (char)))  # формирование структуры листиков
-    heapq.heapify (head)  # формирование двоичного дерева (кучи), наименьшие значения будут на head[0]
+    heapq.heapify (head)  # формирование двоичного дерева (кучи)
     counter = len (head)
     while len (head) > 1:
-        freq1, counter1, left = heapq.heappop (head)
-        freq2, counter2, right = heapq.heappop (head)
+        freq1, _counter1, left = heapq.heappop (head)
+        freq2, _counter2, right = heapq.heappop (head)
         heapq.heappush (head, (freq1 + freq2, counter, Node (left, right)))
         counter += 1
     dic_code = {}
     if head:
-        [(freq, count, root)] = head
+        [(freq, _count, root)] = head
         root.step (dic_code, "")
     return dic_code, "".join (dic_code[ch] for ch in string)
 
 
-def func_decode(encode, code):
+def func_decode(encode_in, code_in):
     """
     Функция раскодирования по словарю
-    :param encode: кодирование фраза в коде Хаффмана
-    :param code: словарь
+    :param encode_in: кодирование фраза в коде Хаффмана
+    :param code_in: словарь
     :return: раскодированная строка
     """
     decode_line = []
     encode_char = ''
-    for ch in encode:
-        encode_char += ch
-        for key in code:
-            if code.get (key) == encode_char:
+    for ch_in in encode_in:
+        encode_char += ch_in
+        for key in code_in:
+            if code_in.get (key) == encode_char:
                 decode_line.append (key)
                 encode_char = ''
                 break
