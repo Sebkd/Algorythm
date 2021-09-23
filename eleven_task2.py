@@ -42,13 +42,13 @@ def func_code(line):
     heapq.heapify (head)  # формирование двоичного дерева (кучи), наименьшие значения будут на head[0]
     counter = len (head)
     while len (head) > 1:
-        freq1, counter1, left = heapq.heappop (head)
-        freq2, counter2, right = heapq.heappop (head)
+        freq1, _counter1, left = heapq.heappop (head)
+        freq2, _counter2, right = heapq.heappop (head)
         heapq.heappush (head, (freq1 + freq2, counter, Node (left, right)))
         counter += 1
     dic_code = {}
     if head:
-        [(freq, count, root)] = head
+        [(freq, _count, root)] = head
         root.step (dic_code, "")
     return dic_code, "".join (dic_code[ch] for ch in string)
 
